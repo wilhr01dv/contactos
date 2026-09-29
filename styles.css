@@ -83,3 +83,75 @@ input.invalido { border-color: #dc2626; }
 @media (max-width: 480px) {
   .campos { grid-template-columns: 1fr; }
 }
+
+
+/* ---------- Contador ---------- */
+.total {
+  margin: 0;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #e0e7ff;
+  border-radius: 999px;
+}
+
+/* ---------- Listado y buscador ---------- */
+.listado { margin-top: 20px; }
+
+#buscador { width: 100%; margin-bottom: 14px; background: #fff; }
+
+#lista-contactos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contacto {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+}
+
+.avatar {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #4f46e5;
+  background: #e0e7ff;
+  border-radius: 50%;
+}
+
+.datos { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.nombre { font-weight: 600; overflow-wrap: anywhere; }
+.telefono { font-size: 0.88rem; color: #6b7280; }
+
+.btn-eliminar {
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #dc2626;
+  background: #fee2e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-eliminar:hover { background: #fecaca; }
+
+.vacio {
+  padding: 24px;
+  text-align: center;
+  color: #9ca3af;
+}

@@ -31,6 +31,11 @@ function agregarContacto() {
   renderizar();
 }
 
+function eliminarContacto(id) {
+  contactos = contactos.filter((c) => c.id !== id);
+  renderizar();
+}
+
 function renderizar() {
   lista.innerHTML = "";
 
@@ -52,7 +57,13 @@ function renderizar() {
     telefono.textContent = c.telefono;
     datos.append(nombre, telefono);
 
-    li.append(avatar, datos);
+    const btnEliminar = document.createElement("button");
+    btnEliminar.type = "button";
+    btnEliminar.className = "btn-eliminar";
+    btnEliminar.textContent = "Eliminar";
+    btnEliminar.addEventListener("click", () => eliminarContacto(c.id));
+
+    li.append(avatar, datos, btnEliminar);
     lista.appendChild(li);
   });
 
@@ -61,7 +72,7 @@ function renderizar() {
 
 btnAgregar.addEventListener("click", agregarContacto);
 
-// Enter dentro de los campos hace lo mismo que el botón
+// Enter dentro de los campos 
 [inputNombre, inputTelefono].forEach((input) => {
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") agregarContacto();

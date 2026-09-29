@@ -8,6 +8,7 @@ const btnAgregar = document.getElementById("btn-agregar");
 const lista = document.getElementById("lista-contactos");
 const mensajeError = document.getElementById("mensaje-error");
 const mensajeVacio = document.getElementById("mensaje-vacio");
+const contador = document.getElementById("contador");
 
 function agregarContacto() {
   const nombre = inputNombre.value.trim();
@@ -68,6 +69,8 @@ function renderizar() {
   });
 
   mensajeVacio.hidden = contactos.length > 0;
+  // El contador siempre refleja el total real guardado
+  contador.textContent = contactos.length;
 }
 
 btnAgregar.addEventListener("click", agregarContacto);

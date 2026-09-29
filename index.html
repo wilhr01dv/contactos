@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador de contactos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="encabezado">
+      <h1>Mis contactos</h1>
+      <p class="total">Total: <span id="contador">0</span></p>
+    </header>
+
+    <section class="formulario">
+      <h2>Nuevo contacto</h2>
+      <div class="campos">
+        <label for="nombre">Nombre
+          <input type="text" id="nombre" placeholder="Ej. María Pérez" autocomplete="off">
+        </label>
+        <label for="telefono">Teléfono
+          <input type="tel" id="telefono" placeholder="Ej. 71234567" autocomplete="off">
+        </label>
+        <button type="button" id="btn-agregar">Agregar</button>
+      </div>
+      <p id="mensaje-error" class="error" hidden></p>
+    </section>
+
+    <section class="listado">
+      <input type="search" id="buscador" placeholder="Buscar por nombre..." autocomplete="off">
+      <ul id="lista-contactos"></ul>
+      <p id="mensaje-vacio" class="vacio">Aún no hay contactos.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

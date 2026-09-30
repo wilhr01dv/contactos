@@ -9,6 +9,7 @@ const lista = document.getElementById("lista-contactos");
 const mensajeError = document.getElementById("mensaje-error");
 const mensajeVacio = document.getElementById("mensaje-vacio");
 const contador = document.getElementById("contador");
+const buscador = document.getElementById("buscador");
 
 function agregarContacto() {
   const nombre = inputNombre.value.trim();
@@ -38,9 +39,13 @@ function eliminarContacto(id) {
 }
 
 function renderizar() {
-  lista.innerHTML = "";
+    lista.innerHTML = "";
 
-  contactos.forEach((c) => {
+    // Filtro por nombre (parcial, sin distinguir mayúsculas/minúsculas)
+    const termino = buscador.value.trim().toLowerCase();
+    const visibles = contactos.filter((c) => c.nombre.toLowerCase().includes(termino));
+
+    visibles.forEach((c) => {
     const li = document.createElement("li");
     li.className = "contacto";
 
@@ -68,11 +73,15 @@ function renderizar() {
     lista.appendChild(li);
   });
 
-  mensajeVacio.hidden = contactos.length > 0;
-  // El contador siempre refleja el total real guardado
-  contador.textContent = contactos.length;
+    mensajeVacio.textContent = contactos.length === 0
+    ? "Aún no hay contactos."
+    : "Ningún contacto coincide con tu búsqueda.";
+    mensajeVacio.hidden = visibles.length > 0;
+    // El contador siempre refleja el total real guardado
+    contador.textContent = contactos.length;
 }
 
+buscador.addEventListener("input", renderizar);
 btnAgregar.addEventListener("click", agregarContacto);
 
 // Enter dentro de los campos 
